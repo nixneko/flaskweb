@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Online</title>
+    <script>
+        function display_c(){
+        var refresh=1000;
+        mytime=setTimeout('display_ct()',refresh)
+        }
+
+        function display_ct() {
+        var x = new Date()
+        var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
+        x1 = x1 + " - " +  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
+        document.getElementById('ct').innerHTML = x1;
+        display_c();
+        }
+    </script>
     <style>
         html {
             min-height: 100%;
-            background-image: url(https://i.imgur.com/PV7xkSq.jpg);
+            background-image: url(https://www.itl.cat/pngfile/big/157-1577055_shelter-porter-robinson-anime.jpg);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
@@ -20,29 +34,26 @@
             text-align: center;
             min-height: 100vh;
         }
-        
-        @font-face {
-            font-family: Ground;
-            src: url(font/243Ground.ttf) format("truetype");
-        }
         .white{
-            font-size: 50px;
             color: white;
-            font-family: Ground;
         }
+        .large {
+            font-size: 50px;
+        }
+        
         
     </style>
 </head>
-<body>
+<body onload=display_ct();>
 
-        <div>
-            <h1 class="center-screen white" data-aos="zoom-in" data-aos-duration="2000">status : online</h1>
-            
+        <div class="center-screen">
+            <h1 class=" ground white large" data-aos="zoom-in" data-aos-duration="2000">Status : Online</h1>
+            <h1 class="ground white" data-aos="zoom-in" data-aos-duration="2000"><span id='ct'></span></h1>
         </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+      AOS.init();
     </script>
 </body>
 </html>
