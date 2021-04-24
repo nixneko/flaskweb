@@ -1,24 +1,13 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from threading import Thread
 
+app = Flask(__name__)
 
-app = Flask('')
-
-
-@app.route("/", methods=["GET"])
+@app.route('/')
 
 def index():
     return render_template('index.html')
 
-def get_my_ip():
-    x = request.remote_addr
-    file = open('text.log', 'a')
-    file.write(x+"\n")
-    return x
-
-def run():
+if __name__ == '__main__':
+    app.debug = True
     app.run(host="0.0.0.0", port="6969")
-
-def keep_alive():
-    server = Thread(target=run)
-    server.start()
