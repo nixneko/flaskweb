@@ -13,7 +13,7 @@ def index():
 def get_my_ip():
     x = request.remote_addr
     file = open('text.log', 'a')
-    file.write(f'{x}\n')
+    file.write(x+"\n")
     return x
 
 def run():
